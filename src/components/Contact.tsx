@@ -75,7 +75,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 relative overflow-hidden mesh-gradient" ref={ref}>
+    <section id="contact" className="py-28 relative overflow-hidden mesh-gradient" ref={ref}>
       <div className="absolute -bottom-10 -right-20 w-96 h-96 bg-fuchsia-600/15 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute -top-10 -left-20 w-80 h-80 bg-purple-600/15 rounded-full blur-3xl pointer-events-none" />
 
@@ -115,7 +115,7 @@ export default function Contact() {
             <motion.div
               key={label}
               variants={itemVariants}
-              whileHover={{ x: 4, boxShadow: "0 0 15px rgba(168,85,247,0.15)" }}
+              whileHover={{ x: 4, boxShadow: "0 0 0 1px rgba(168,85,247,0.35), 0 16px 40px rgba(168,85,247,0.22)" }}
               className="glass border border-[var(--border)] rounded-2xl p-6 flex items-center gap-4 hover:border-[var(--accent)] transition-all duration-200"
             >
               <div className="w-11 h-11 rounded-xl glass border border-[var(--border)] flex items-center justify-center flex-shrink-0">

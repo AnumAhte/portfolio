@@ -198,7 +198,7 @@ export default function Projects() {
   const rest     = projects.slice(1);
 
   return (
-    <section id="projects" className="py-24 relative overflow-hidden mesh-gradient" ref={ref}>
+    <section id="projects" className="py-28 relative overflow-hidden mesh-gradient" ref={ref}>
       <div className="absolute -top-10 -right-20 w-96 h-96 bg-purple-600/15 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-10 left-0 w-80 h-80 bg-violet-600/10 rounded-full blur-3xl pointer-events-none" />
 
@@ -229,7 +229,7 @@ export default function Projects() {
         {/* ── Featured card — full-width horizontal layout ── */}
         <motion.article
           variants={cardVariants}
-          whileHover={{ y: -6, boxShadow: `0 30px 60px ${featured.glow}` }}
+          whileHover={{ y: -6, boxShadow: `0 0 0 1px ${featured.glow}, 0 32px 64px ${featured.glow}` }}
           className={`relative glass border ${featured.border} rounded-3xl overflow-hidden shine-effect bg-gradient-to-br ${featured.cardBg} flex flex-col lg:flex-row transition-all duration-300 neon-border`}
         >
           {/* Featured badge */}
@@ -291,12 +291,12 @@ export default function Projects() {
         </motion.article>
 
         {/* ── Regular cards — 2-column grid ── */}
-        <div className="grid sm:grid-cols-2 gap-7">
+        <div className="grid md:grid-cols-2 gap-8">
           {rest.map((project, i) => (
             <motion.article
               key={project.id}
               variants={cardVariants}
-              whileHover={{ y: -8, boxShadow: `0 25px 50px ${project.glow}` }}
+              whileHover={{ y: -8, boxShadow: `0 0 0 1px ${project.glow}, 0 28px 56px ${project.glow}` }}
               className={`relative glass border ${project.border} rounded-3xl overflow-hidden shine-effect bg-gradient-to-br ${project.cardBg} flex flex-col transition-all duration-300`}
             >
               {/* Project number */}

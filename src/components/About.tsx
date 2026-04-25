@@ -56,7 +56,7 @@ export default function About() {
 
   return (
     /* py-20 = consistent section spacing; relative for the background blobs */
-    <section id="about" className="py-24 relative overflow-hidden mesh-gradient" ref={ref}>
+    <section id="about" className="py-28 relative overflow-hidden mesh-gradient" ref={ref}>
       <div className="absolute -top-20 -right-20 w-96 h-96 bg-purple-600/15 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 -left-20 w-72 h-72 bg-violet-600/10 rounded-full blur-3xl pointer-events-none" />
 
@@ -119,7 +119,7 @@ export default function About() {
             {stats.map(({ label, value, icon }) => (
               <motion.div
                 key={label}
-                whileHover={{ y: -5, scale: 1.03, boxShadow: "0 0 30px rgba(168,85,247,0.3)" }}
+                whileHover={{ y: -6, scale: 1.04, boxShadow: "0 0 0 1px rgba(168,85,247,0.45), 0 20px 40px rgba(168,85,247,0.30)" }}
                 className="glass border border-[var(--border)] rounded-2xl p-4 text-center shine-effect hover:border-purple-500/40 transition-all duration-300 group"
               >
                 <div className="flex justify-center mb-2 text-[var(--accent)] group-hover:scale-110 transition-transform duration-200">{icon}</div>
@@ -141,7 +141,7 @@ export default function About() {
             <motion.div
               key={title}
               variants={itemVariants}
-              whileHover={{ x: 6, scale: 1.01, boxShadow: "0 0 30px rgba(168,85,247,0.22)" }}
+              whileHover={{ x: 4, scale: 1.01, boxShadow: "0 0 0 1px rgba(168,85,247,0.40), 0 20px 48px rgba(168,85,247,0.28)" }}
               className={`relative p-8 rounded-2xl bg-gradient-to-br ${color} border ${border} glass shine-effect group transition-all duration-300 overflow-hidden`}
             >
               {/* Animated left accent line */}

@@ -88,7 +88,7 @@ export default function Hero() {
       />
 
       {/* ── Inner content — same max-w-7xl axis as global container ── */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-6 sm:px-8 lg:px-10 py-28">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16">
 
           {/* ── Left: Text ── */}

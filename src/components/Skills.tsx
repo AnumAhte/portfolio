@@ -135,7 +135,7 @@ export default function Skills() {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="skills" className="py-24 relative overflow-hidden mesh-gradient" ref={ref}>
+    <section id="skills" className="py-28 relative overflow-hidden mesh-gradient" ref={ref}>
       <div className="absolute -bottom-20 -left-20 w-96 h-96 bg-violet-600/15 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute top-10 right-0 w-72 h-72 bg-fuchsia-600/10 rounded-full blur-3xl pointer-events-none" />
 
@@ -221,7 +221,7 @@ export default function Skills() {
         transition={{ delay: 0.8, duration: 0.6 }}
         className="mt-14 text-center"
       >
-        <p className="text-sm text-[var(--text-muted)] mb-5 font-medium uppercase tracking-widest">
+        <p className="text-base text-[var(--text-muted)] mb-6 font-medium uppercase tracking-widest">
           Technologies at a glance
         </p>
         <div className="flex flex-wrap justify-center gap-3">

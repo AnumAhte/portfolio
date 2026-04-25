@@ -147,7 +147,7 @@ export default function Journey() {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="journey" className="py-24 relative overflow-hidden mesh-gradient" ref={ref}>
+    <section id="journey" className="py-28 relative overflow-hidden mesh-gradient" ref={ref}>
       <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-[36rem] h-72 bg-violet-600/15 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 -right-20 w-80 h-80 bg-fuchsia-600/10 rounded-full blur-3xl pointer-events-none" />
 

@@ -32,7 +32,7 @@ export default function Footer() {
       {/* Top gradient line */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-500/50 to-transparent" />
 
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="w-full max-w-6xl mx-auto px-6 sm:px-8 lg:px-10 py-14">
         <div className="grid sm:grid-cols-3 gap-10 mb-10">
           {/* Brand */}
           <div>
