@@ -22,6 +22,7 @@ const projects = [
     icon: <BookOpen size={28} />,
     title: "AI-Powered Book Platform with RAG Chatbot",
     tagline: "Talk to books. Get intelligent answers.",
+    solves: "Eliminates hours of manual reading by letting users query any book topic through an intelligent AI chatbot",
     description:
       "An advanced AI application that allows users to interact with book content through a RAG-based intelligent chatbot. Ask any question and receive context-aware, accurate answers sourced directly from embedded book content.",
     highlights: [
@@ -45,6 +46,7 @@ const projects = [
     icon: <CheckSquare size={28} />,
     title: "Smart Todo App with AI Chatbot",
     tagline: "Productivity meets intelligence.",
+    solves: "Replaces scattered task tools and manual planning with an AI assistant that helps you prioritize and execute faster",
     description:
       "A full-featured productivity app combining task management with an intelligent chatbot assistant. Manage your tasks with CRUD operations while your AI assistant helps you prioritize, plan, and stay on track.",
     highlights: [
@@ -68,6 +70,7 @@ const projects = [
     icon: <Bot size={28} />,
     title: "AI Employee (Digital FTE)",
     tagline: "Your 24/7 digital team member.",
+    solves: "Automates repetitive business workflows using agentic AI — cutting manual effort and running around the clock without human input",
     description:
       "An AI-powered virtual employee designed to automate business tasks and operate around the clock without human intervention. Handles repetitive workflows, executes tasks, and acts as a fully autonomous digital team member.",
     highlights: [
@@ -266,6 +269,12 @@ export default function Projects() {
               {featured.description}
             </p>
 
+            {/* Solves strip */}
+            <div className="flex items-start gap-2 px-4 py-3 rounded-xl bg-purple-500/10 border border-purple-500/20">
+              <span className="text-xs font-bold text-purple-400 uppercase tracking-widest mt-0.5 flex-shrink-0">Solves:</span>
+              <p className="text-sm text-[var(--text-secondary)] leading-snug">{featured.solves}</p>
+            </div>
+
             <ul className="grid sm:grid-cols-2 gap-1.5">
               {featured.highlights.map((h) => (
                 <li key={h} className="flex items-start gap-2 text-sm text-[var(--text-secondary)]">
@@ -323,6 +332,12 @@ export default function Projects() {
                 <p className="text-base text-[var(--text-secondary)] leading-relaxed">
                   {project.description}
                 </p>
+
+                {/* Solves strip */}
+                <div className="flex items-start gap-2 px-3 py-2.5 rounded-xl bg-purple-500/10 border border-purple-500/20">
+                  <span className="text-xs font-bold text-purple-400 uppercase tracking-widest mt-0.5 flex-shrink-0">Solves:</span>
+                  <p className="text-sm text-[var(--text-secondary)] leading-snug">{project.solves}</p>
+                </div>
 
                 <ul className="space-y-1.5">
                   {project.highlights.map((h) => (

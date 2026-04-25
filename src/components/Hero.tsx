@@ -147,12 +147,29 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              className="text-xl sm:text-2xl text-[var(--text-secondary)] leading-relaxed mb-10 max-w-xl mx-auto lg:mx-0"
+              className="text-xl sm:text-2xl text-[var(--text-secondary)] leading-relaxed mb-4 max-w-xl mx-auto lg:mx-0"
             >
-              Building modern web apps with{" "}
-              <span className="text-[var(--text-primary)] font-semibold">AI-powered experiences</span>{" "}
-              — from intelligent chatbots to full-stack platforms.
+              I build{" "}
+              <span className="text-[var(--text-primary)] font-semibold">real-world AI-powered web applications</span>{" "}
+              — from intelligent RAG chatbots to full-stack production platforms.
             </motion.p>
+
+            {/* Trust signals */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.55 }}
+              className="flex flex-col gap-1.5 mb-8 max-w-xl mx-auto lg:mx-0"
+            >
+              {[
+                "✦ Built production AI projects using Next.js & FastAPI",
+                "✦ Experience with AI chatbots, RAG systems & automation",
+              ].map((line) => (
+                <p key={line} className="text-base text-[var(--text-muted)] font-medium">
+                  {line}
+                </p>
+              ))}
+            </motion.div>
 
             {/* CTA Buttons */}
             <motion.div
@@ -219,7 +236,7 @@ export default function Hero() {
               className="mt-8 inline-flex items-stretch glass border border-[var(--border)] rounded-2xl overflow-hidden divide-x divide-[var(--border)]"
             >
               {[
-                { value: "3+",  label: "Projects"    },
+                { value: "10+", label: "Projects"    },
                 { value: "2+",  label: "Years Exp."  },
                 { value: "8+",  label: "Technologies" },
               ].map(({ value, label }) => (
