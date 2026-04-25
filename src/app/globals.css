@@ -1,26 +1,456 @@
 @import "tailwindcss";
 
+/* ═══════════════════════════════════════════════════
+   DESIGN SYSTEM — Black & Purple Premium
+   Poppins (headings) + Inter (body)
+   ═══════════════════════════════════════════════════ */
+
+/* ─── Light mode tokens ──────────────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg-primary:    #f5f3ff;
+  --bg-secondary:  #ede9fe;
+  --bg-card:       rgba(255, 255, 255, 0.88);
+  --text-primary:  #0d0b1a;
+  --text-secondary:#3d3a55;
+  --text-muted:    #7b78a0;
+  --border:        rgba(124, 58, 237, 0.18);
+  --gradient-start:#7c3aed;
+  --gradient-end:  #9333ea;
+  --accent:        #7c3aed;
+  --accent-light:  #9333ea;
+  --glow:          rgba(124, 58, 237, 0.18);
+  --shadow:        0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
+  --shadow-lg:     0 10px 15px -3px rgba(0,0,0,0.09), 0 4px 6px -4px rgba(0,0,0,0.06);
+  --shadow-xl:     0 20px 25px -5px rgba(0,0,0,0.10), 0 8px 10px -6px rgba(0,0,0,0.06);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ─── Dark mode tokens — true black + rich purple ── */
+.dark {
+  --bg-primary:    #03030a;
+  --bg-secondary:  #07070f;
+  --bg-card:       rgba(10, 8, 22, 0.80);
+  --text-primary:  #f0eeff;
+  --text-secondary:#9590b8;
+  --text-muted:    #524e6f;
+  --border:        rgba(139, 92, 246, 0.22);
+  --gradient-start:#7c3aed;
+  --gradient-end:  #a855f7;
+  --accent:        #a855f7;
+  --accent-light:  #c084fc;
+  --glow:          rgba(168, 85, 247, 0.32);
+  --shadow:        0 4px 6px -1px rgba(0,0,0,0.55), 0 2px 4px -2px rgba(0,0,0,0.40);
+  --shadow-lg:     0 10px 15px -3px rgba(0,0,0,0.65), 0 4px 6px -4px rgba(0,0,0,0.45);
+  --shadow-xl:     0 20px 25px -5px rgba(0,0,0,0.75), 0 8px 10px -6px rgba(0,0,0,0.50);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ═══════════════════════════════════════════════════
+   BASE RESET
+   ═══════════════════════════════════════════════════ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+  background-color: #03030a;   /* no white flash before JS */
+}
+
+/* ─── Body: Inter ─────────────────────────────────── */
+body {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-inter, 'Inter'), ui-sans-serif, system-ui, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+}
+
+/* ─── Headings: Poppins ───────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-poppins, 'Poppins'), ui-sans-serif, system-ui, sans-serif;
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+}
+
+/* ═══════════════════════════════════════════════════
+   CUSTOM SCROLLBAR
+   ═══════════════════════════════════════════════════ */
+::-webkit-scrollbar        { width: 5px; }
+::-webkit-scrollbar-track  { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb  {
+  background: linear-gradient(180deg, #7c3aed, #a855f7, #c084fc);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover { background: #c084fc; }
+
+/* ═══════════════════════════════════════════════════
+   GRADIENT TEXT  (static)
+   ═══════════════════════════════════════════════════ */
+.gradient-text {
+  background: linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #c084fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.dark .gradient-text {
+  background: linear-gradient(135deg, #d8b4fe 0%, #a855f7 42%, #e879f9 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ═══════════════════════════════════════════════════
+   GLASSMORPHISM CARD
+   ═══════════════════════════════════════════════════ */
+.glass {
+  background: var(--bg-card);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  border: 1px solid var(--border);
+}
+
+/* ═══════════════════════════════════════════════════
+   MESH GRADIENT BACKGROUND
+   ═══════════════════════════════════════════════════ */
+.mesh-gradient {
+  background-color: var(--bg-primary);
+  background-image:
+    radial-gradient(at 40% 20%, rgba(124, 58, 237, 0.14) 0px, transparent 55%),
+    radial-gradient(at 80% 0%,  rgba(139, 92, 246, 0.10) 0px, transparent 50%),
+    radial-gradient(at 0%  50%, rgba(168, 85, 247, 0.08) 0px, transparent 55%),
+    radial-gradient(at 80% 55%, rgba(124, 58, 237, 0.08) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(139, 92, 246, 0.10) 0px, transparent 50%);
+}
+
+.dark .mesh-gradient {
+  background-color: var(--bg-primary);
+  background-image:
+    radial-gradient(at 30% 15%, rgba(109, 40, 217, 0.30) 0px, transparent 55%),
+    radial-gradient(at 85% 5%,  rgba(124, 58, 237, 0.20) 0px, transparent 52%),
+    radial-gradient(at 5%  55%, rgba(139, 92, 246, 0.16) 0px, transparent 55%),
+    radial-gradient(at 90% 60%, rgba(109, 40, 217, 0.18) 0px, transparent 52%),
+    radial-gradient(at 10% 90%, rgba(124, 58, 237, 0.22) 0px, transparent 55%),
+    radial-gradient(at 70% 85%, rgba(147, 51, 234, 0.14) 0px, transparent 50%);
+}
+
+/* ═══════════════════════════════════════════════════
+   GLOW EFFECTS
+   ═══════════════════════════════════════════════════ */
+.glow-purple {
+  box-shadow:
+    0 0 25px rgba(168, 85, 247, 0.45),
+    0 0 60px rgba(168, 85, 247, 0.18),
+    0 0 90px rgba(168, 85, 247, 0.06);
+}
+
+/* ═══════════════════════════════════════════════════
+   TYPING CURSOR
+   ═══════════════════════════════════════════════════ */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+.typing-cursor {
+  display: inline-block;
+  width: 2.5px;
+  height: 1em;
+  background: var(--accent);
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  border-radius: 1px;
+  animation: blink 1s ease-in-out infinite;
+}
+
+/* ═══════════════════════════════════════════════════
+   FLOATING / PULSE ANIMATIONS
+   ═══════════════════════════════════════════════════ */
+@keyframes float {
+  0%, 100% { transform: translateY(0px);   }
+  50%       { transform: translateY(-14px); }
+}
+.float-animation { animation: float 4.5s ease-in-out infinite; }
+
+@keyframes pulse-ring {
+  0%   { transform: scale(0.94); box-shadow: 0 0 0 0   rgba(168, 85, 247, 0.50); }
+  70%  { transform: scale(1);    box-shadow: 0 0 0 24px rgba(168, 85, 247, 0);   }
+  100% { transform: scale(0.94); box-shadow: 0 0 0 0   rgba(168, 85, 247, 0);   }
+}
+.pulse-ring { animation: pulse-ring 2.8s ease-out infinite; }
+
+/* ═══════════════════════════════════════════════════
+   SECTION SPACING
+   ═══════════════════════════════════════════════════ */
+.section-padding { width: 100%; padding: 6rem 0; }
+
+/* ═══════════════════════════════════════════════════
+   SECTION DIVIDER
+   ═══════════════════════════════════════════════════ */
+.section-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent            0%,
+    rgba(139, 92, 246, 0.30) 20%,
+    rgba(168, 85, 247, 0.60) 50%,
+    rgba(139, 92, 246, 0.30) 80%,
+    transparent            100%
+  );
+  margin: 1.5rem 0;
+}
+
+/* ═══════════════════════════════════════════════════
+   GLOBAL CENTERED CONTAINER
+   ═══════════════════════════════════════════════════ */
+.global-container {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+@media (min-width: 640px)  { .global-container { padding-left: 1.5rem; padding-right: 1.5rem; } }
+@media (min-width: 1024px) { .global-container { padding-left: 2rem;   padding-right: 2rem;   } }
+
+/* ═══════════════════════════════════════════════════
+   SHINE SWEEP ON CARDS
+   ═══════════════════════════════════════════════════ */
+@keyframes shine {
+  from { transform: translateX(-100%) skewX(-15deg); }
+  to   { transform: translateX(220%)  skewX(-15deg); }
+}
+.shine-effect { overflow: hidden; position: relative; }
+.shine-effect::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+  transform: translateX(-100%) skewX(-15deg);
+  pointer-events: none;
+}
+.shine-effect:hover::after { animation: shine 0.65s ease; }
+
+/* ═══════════════════════════════════════════════════
+   SECTION TITLE UNDERLINE
+   ═══════════════════════════════════════════════════ */
+.section-title-line {
+  display: inline-block;
+  position: relative;
+}
+.section-title-line::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #7c3aed, #a855f7, #e879f9, #c084fc);
+  border-radius: 2px;
+}
+
+/* ═══════════════════════════════════════════════════
+   ANIMATED GRADIENT TEXT (cycles through purple hues)
+   ═══════════════════════════════════════════════════ */
+@keyframes gradient-x {
+  0%, 100% { background-position: 0%   50%; }
+  50%       { background-position: 100% 50%; }
+}
+.animated-gradient-text {
+  background: linear-gradient(270deg, #7c3aed, #9333ea, #a855f7, #c084fc, #e879f9, #a855f7, #9333ea);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-x 8s ease infinite;
+}
+
+/* ═══════════════════════════════════════════════════
+   NEON BORDER PULSE  (featured card)
+   ═══════════════════════════════════════════════════ */
+@keyframes neon-pulse {
+  0%, 100% {
+    box-shadow:
+      0 0 0 1px rgba(168, 85, 247, 0.35),
+      0 0 24px rgba(168, 85, 247, 0.12),
+      inset 0 0 24px rgba(168, 85, 247, 0.04);
+  }
+  50% {
+    box-shadow:
+      0 0 0 1px rgba(192, 132, 252, 0.65),
+      0 0 48px rgba(168, 85, 247, 0.28),
+      inset 0 0 32px rgba(168, 85, 247, 0.08);
   }
 }
+.neon-border { animation: neon-pulse 3.5s ease-in-out infinite; }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ═══════════════════════════════════════════════════
+   DOT MATRIX BACKGROUND PATTERN
+   ═══════════════════════════════════════════════════ */
+.dot-pattern {
+  background-image: radial-gradient(circle, rgba(168, 85, 247, 0.14) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* ═══════════════════════════════════════════════════
+   NUMBER FORMATTING
+   ═══════════════════════════════════════════════════ */
+.tabular-nums { font-variant-numeric: tabular-nums; }
+
+/* ═══════════════════════════════════════════════════
+   CARD HOVER LIFT  (stronger purple glow on hover)
+   ═══════════════════════════════════════════════════ */
+.hover-glow:hover {
+  box-shadow:
+    0 0 0 1px rgba(168, 85, 247, 0.40),
+    0 24px 64px rgba(168, 85, 247, 0.24),
+    0 8px 24px rgba(0, 0, 0, 0.50);
+}
+
+/* ═══════════════════════════════════════════════════
+   SKILL LEVEL BADGES
+   ═══════════════════════════════════════════════════ */
+.badge-expert {
+  background: rgba(168, 85, 247, 0.16);
+  color: #d8b4fe;
+  border: 1px solid rgba(168, 85, 247, 0.35);
+}
+.badge-advanced {
+  background: rgba(124, 58, 237, 0.16);
+  color: #c4b5fd;
+  border: 1px solid rgba(124, 58, 237, 0.35);
+}
+.badge-intermediate {
+  background: rgba(99, 102, 241, 0.14);
+  color: #a5b4fc;
+  border: 1px solid rgba(99, 102, 241, 0.28);
+}
+
+/* ═══════════════════════════════════════════════════
+   TYPOGRAPHY UTILITIES
+   ═══════════════════════════════════════════════════ */
+.heading-display {
+  font-family: var(--font-poppins, 'Poppins'), ui-sans-serif, sans-serif;
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-weight: 800;
+  line-height: 1.04;
+  letter-spacing: -0.04em;
+}
+.heading-xl {
+  font-family: var(--font-poppins, 'Poppins'), ui-sans-serif, sans-serif;
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+.heading-lg {
+  font-family: var(--font-poppins, 'Poppins'), ui-sans-serif, sans-serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+.section-label {
+  font-family: var(--font-inter, 'Inter'), ui-sans-serif, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* ═══════════════════════════════════════════════════
+   PREMIUM BUTTON BASE STYLES
+   ═══════════════════════════════════════════════════ */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.9375rem 2.125rem;
+  background: linear-gradient(135deg, #6d28d9, #7c3aed, #9333ea, #a855f7);
+  background-size: 200% 200%;
+  color: #ffffff;
+  font-family: var(--font-poppins, 'Poppins'), ui-sans-serif, sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 0.875rem;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 4px 20px rgba(139, 92, 246, 0.40), 0 0 0 1px rgba(168, 85, 247, 0.25);
+  animation: gradient-x 5s ease infinite;
+}
+.btn-primary:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 32px rgba(168, 85, 247, 0.55), 0 0 0 1px rgba(192, 132, 252, 0.40);
+}
+.btn-primary:active { transform: scale(0.97); }
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.9375rem 2.125rem;
+  background: rgba(10, 8, 22, 0.60);
+  color: var(--text-primary);
+  font-family: var(--font-poppins, 'Poppins'), ui-sans-serif, sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 0.875rem;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  text-decoration: none;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease;
+}
+.btn-ghost:hover {
+  border-color: rgba(168, 85, 247, 0.55);
+  background: rgba(168, 85, 247, 0.10);
+  transform: translateY(-1px);
+}
+.btn-ghost:active { transform: scale(0.97); }
+
+/* ═══════════════════════════════════════════════════
+   PREMIUM CARD BASE
+   ═══════════════════════════════════════════════════ */
+.card-premium {
+  background: var(--bg-card);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  border: 1px solid var(--border);
+  border-radius: 1.25rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.card-premium:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 0 0 1px rgba(168, 85, 247, 0.35),
+    0 20px 48px rgba(168, 85, 247, 0.20),
+    0 8px 20px rgba(0, 0, 0, 0.45);
+  border-color: rgba(168, 85, 247, 0.40);
+}
+
+/* ═══════════════════════════════════════════════════
+   GRADIENT STROKE TEXT  (outline style)
+   ═══════════════════════════════════════════════════ */
+.gradient-stroke {
+  background: linear-gradient(135deg, #7c3aed, #a855f7, #e879f9);
+  -webkit-background-clip: text;
+  -webkit-text-stroke: 2px transparent;
+  background-clip: text;
+  color: transparent;
 }
