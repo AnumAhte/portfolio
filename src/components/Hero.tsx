@@ -107,12 +107,12 @@ export default function Hero() {
             </div>
 
             {/* Tagline */}
-            <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-6">
+            <p className="text-lg md:text-xl text-gray-8git00 leading-relaxed mb-6">
               I build real-world AI-powered web applications — from RAG chatbots to full-stack platforms.
             </p>
 
             {/* Trust */}
-            <div className="mb-8 space-y-1 text-sm text-gray-400">
+            <div className="mb-8 space-y-1 text-sm text-gray-600">
               <p>✦ Built real-world AI apps using Next.js & FastAPI</p>
               <p>✦ Specialized in RAG chatbots & automation systems</p>
             </div>
@@ -137,7 +137,7 @@ export default function Hero() {
             {/* Social */}
             <div className="flex gap-4 mt-6 justify-center lg:justify-start">
               <a href="https://github.com/AnumAhte"><GithubIcon /></a>
-              <a href="#"><LinkedinIcon /></a>
+              <a href="https://www.linkedin.com/in/anum-ahtesham-7308a42b6/"><LinkedinIcon /></a>
             </div>
           </div>
 
