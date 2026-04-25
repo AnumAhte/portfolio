@@ -108,8 +108,8 @@ function TimelineItem({ item, index }: { item: (typeof timeline)[0]; index: numb
 
       {/* Card */}
       <motion.div
-        whileHover={{ scale: 1.02, y: -3, boxShadow: "0 0 20px rgba(168,85,247,0.2)" }}
-        className="w-full lg:w-[calc(50%-3rem)] glass border border-[var(--border)] rounded-2xl p-6 shine-effect hover:border-[var(--accent)] transition-all duration-300"
+        whileHover={{ scale: 1.02, y: -4, boxShadow: "0 0 0 1px rgba(168,85,247,0.4), 0 20px 48px rgba(168,85,247,0.25)" }}
+        className="w-full lg:w-[calc(50%-3rem)] glass border border-[var(--border)] rounded-2xl p-7 shine-effect hover:border-[var(--accent)] transition-all duration-300"
       >
         <div className="flex items-center gap-3 mb-3">
           <div className={`hidden lg:flex w-10 h-10 rounded-xl bg-gradient-to-br ${item.gradient} items-center justify-center text-white shadow-md`}>
@@ -161,10 +161,10 @@ export default function Journey() {
         <p className="section-label mb-3">
           How I got here
         </p>
-        <h2 className="text-4xl sm:text-5xl font-extrabold text-[var(--text-primary)] mb-5">
+        <h2 className="text-5xl sm:text-6xl font-extrabold text-[var(--text-primary)] mb-5">
           My <span className="gradient-text section-title-line">Journey</span>
         </h2>
-        <p className="max-w-xl mx-auto text-[var(--text-secondary)] text-lg leading-relaxed">
+        <p className="max-w-2xl mx-auto text-[var(--text-secondary)] text-xl leading-relaxed">
           From writing my first HTML tag to building autonomous AI agents — here&apos;s the story so far.
         </p>
       </motion.div>

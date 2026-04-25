@@ -70,16 +70,16 @@ export default function About() {
         <motion.p variants={itemVariants} className="section-label mb-3">
           Get to know me
         </motion.p>
-        <motion.h2 variants={itemVariants} className="text-4xl sm:text-5xl font-extrabold text-[var(--text-primary)] mb-5">
+        <motion.h2 variants={itemVariants} className="text-5xl sm:text-6xl font-extrabold text-[var(--text-primary)] mb-5">
           About <span className="gradient-text section-title-line">Me</span>
         </motion.h2>
-        <motion.p variants={itemVariants} className="max-w-2xl mx-auto text-[var(--text-secondary)] text-lg leading-relaxed">
+        <motion.p variants={itemVariants} className="max-w-2xl mx-auto text-[var(--text-secondary)] text-xl leading-relaxed">
           A developer who sits at the crossroads of modern web engineering and artificial intelligence.
         </motion.p>
       </motion.div>
 
       {/* ── Two-column layout ── */}
-      <div className="grid lg:grid-cols-2 gap-16 items-start">
+      <div className="grid lg:grid-cols-[2fr_3fr] gap-12 items-start">
 
         {/* Left: Bio + traits + stats */}
         <motion.div
@@ -142,7 +142,7 @@ export default function About() {
               key={title}
               variants={itemVariants}
               whileHover={{ x: 6, scale: 1.01, boxShadow: "0 0 30px rgba(168,85,247,0.22)" }}
-              className={`relative p-6 rounded-2xl bg-gradient-to-br ${color} border ${border} glass shine-effect group transition-all duration-300 overflow-hidden`}
+              className={`relative p-8 rounded-2xl bg-gradient-to-br ${color} border ${border} glass shine-effect group transition-all duration-300 overflow-hidden`}
             >
               {/* Animated left accent line */}
               <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-purple-500 via-violet-500 to-fuchsia-500 rounded-l-2xl opacity-60 group-hover:opacity-100 transition-opacity duration-300" />

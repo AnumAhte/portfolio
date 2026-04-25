@@ -89,10 +89,10 @@ export default function Contact() {
         <p className="section-label mb-3">
           Let&apos;s build something great
         </p>
-        <h2 className="text-4xl sm:text-5xl font-extrabold text-[var(--text-primary)] mb-5">
+        <h2 className="text-5xl sm:text-6xl font-extrabold text-[var(--text-primary)] mb-5">
           Get in <span className="gradient-text section-title-line">Touch</span>
         </h2>
-        <p className="max-w-xl mx-auto text-[var(--text-secondary)] text-lg leading-relaxed">
+        <p className="max-w-2xl mx-auto text-[var(--text-secondary)] text-xl leading-relaxed">
           Whether it&apos;s a job opportunity, collaboration, or just a hello — I&apos;d love to hear from you.
         </p>
       </motion.div>
@@ -116,7 +116,7 @@ export default function Contact() {
               key={label}
               variants={itemVariants}
               whileHover={{ x: 4, boxShadow: "0 0 15px rgba(168,85,247,0.15)" }}
-              className="glass border border-[var(--border)] rounded-2xl p-5 flex items-center gap-4 hover:border-[var(--accent)] transition-all duration-200"
+              className="glass border border-[var(--border)] rounded-2xl p-6 flex items-center gap-4 hover:border-[var(--accent)] transition-all duration-200"
             >
               <div className="w-11 h-11 rounded-xl glass border border-[var(--border)] flex items-center justify-center flex-shrink-0">
                 {icon}
@@ -172,7 +172,7 @@ export default function Contact() {
         >
           <motion.div
             variants={itemVariants}
-            className="glass border border-[var(--border)] rounded-3xl p-8 relative overflow-hidden"
+            className="glass border border-[var(--border)] rounded-3xl p-10 relative overflow-hidden"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-violet-500/5 pointer-events-none" />
 

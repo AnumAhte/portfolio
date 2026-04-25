@@ -120,7 +120,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, type: "spring", stiffness: 100 }}
-              className="text-5xl sm:text-6xl lg:text-7xl font-extrabold mb-4 leading-[1.0]"
+              className="text-6xl sm:text-7xl lg:text-8xl font-extrabold mb-4 leading-[1.0]"
               style={{ fontFamily: "var(--font-poppins, 'Poppins'), sans-serif", letterSpacing: "-0.04em" }}
             >
               <span className="animated-gradient-text">Anum</span>
@@ -147,7 +147,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              className="text-lg sm:text-xl text-[var(--text-secondary)] leading-relaxed mb-10 max-w-lg mx-auto lg:mx-0"
+              className="text-xl sm:text-2xl text-[var(--text-secondary)] leading-relaxed mb-10 max-w-xl mx-auto lg:mx-0"
             >
               Building modern web apps with{" "}
               <span className="text-[var(--text-primary)] font-semibold">AI-powered experiences</span>{" "}
@@ -242,7 +242,7 @@ export default function Hero() {
             <div className="absolute inset-0 rounded-full bg-gradient-to-br from-purple-500 via-violet-500 to-fuchsia-500 blur-2xl opacity-30 scale-110 pulse-ring" />
 
             {/* Ring */}
-            <div className="relative w-56 h-56 sm:w-72 sm:h-72 rounded-full p-[3px] bg-gradient-to-br from-purple-500 via-fuchsia-500 to-violet-600 shadow-2xl float-animation">
+            <div className="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full p-[3px] bg-gradient-to-br from-purple-500 via-fuchsia-500 to-violet-600 shadow-2xl float-animation">
               <div className="w-full h-full rounded-full overflow-hidden bg-[#06040f] flex items-center justify-center">
                 {/* Inner radial glow */}
                 <div className="absolute inset-0 rounded-full" style={{ background: "radial-gradient(circle at 40% 35%, rgba(139,92,246,0.30) 0%, transparent 65%)" }} />

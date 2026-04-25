@@ -212,10 +212,10 @@ export default function Projects() {
         <p className="section-label mb-3">
           What I&apos;ve built
         </p>
-        <h2 className="text-4xl sm:text-5xl font-extrabold text-[var(--text-primary)] mb-5">
+        <h2 className="text-5xl sm:text-6xl font-extrabold text-[var(--text-primary)] mb-5">
           Featured <span className="gradient-text section-title-line">Projects</span>
         </h2>
-        <p className="max-w-xl mx-auto text-[var(--text-secondary)] text-lg leading-relaxed">
+        <p className="max-w-2xl mx-auto text-[var(--text-secondary)] text-xl leading-relaxed">
           Real projects that blend full stack engineering with AI capabilities — built to solve real problems.
         </p>
       </motion.div>
@@ -249,7 +249,7 @@ export default function Projects() {
           </div>
 
           {/* Right: content */}
-          <div className="flex flex-col flex-1 p-7 gap-4">
+          <div className="flex flex-col flex-1 p-8 gap-5">
             {/* Project number */}
             <p className="text-xs font-bold text-[var(--text-muted)] uppercase tracking-widest">
               Project 01
@@ -314,7 +314,7 @@ export default function Projects() {
 
               <div className="flex flex-col flex-1 p-6 gap-4">
                 <div>
-                  <h3 className="text-xl font-bold text-[var(--text-primary)] leading-tight mb-1">
+                  <h3 className="text-2xl font-bold text-[var(--text-primary)] leading-tight mb-1">
                     {project.title}
                   </h3>
                   <p className="text-sm font-semibold text-[var(--accent)]">{project.tagline}</p>

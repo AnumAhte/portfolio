@@ -149,10 +149,10 @@ export default function Skills() {
         <p className="section-label mb-3">
           What I work with
         </p>
-        <h2 className="text-4xl sm:text-5xl font-extrabold text-[var(--text-primary)] mb-5">
+        <h2 className="text-5xl sm:text-6xl font-extrabold text-[var(--text-primary)] mb-5">
           My <span className="gradient-text section-title-line">Skills</span>
         </h2>
-        <p className="max-w-xl mx-auto text-[var(--text-secondary)] text-lg leading-relaxed">
+        <p className="max-w-2xl mx-auto text-[var(--text-secondary)] text-xl leading-relaxed">
           A curated toolkit I use to build intelligent, performant, and beautiful products.
         </p>
       </motion.div>
@@ -173,13 +173,13 @@ export default function Skills() {
             <motion.div
               key={label}
               variants={cardVariants}
-              whileHover={{ y: -6, boxShadow: `0 20px 40px ${glow}` }}
+              whileHover={{ y: -8, boxShadow: `0 0 0 1px ${glow}, 0 24px 56px ${glow}` }}
               className={`relative glass border rounded-2xl overflow-hidden shine-effect transition-all duration-300 ${colorMap[color]}`}
             >
               {/* Coloured top accent strip */}
               <div className={`h-1 w-full bg-gradient-to-r ${gradient}`} />
 
-              <div className="p-6">
+              <div className="p-7">
                 <div className="flex items-center justify-between mb-6">
                   <div className="flex items-center gap-3">
                     <div className={`w-10 h-10 rounded-xl flex items-center justify-center bg-gradient-to-br ${gradient} text-white shadow-lg`}>
