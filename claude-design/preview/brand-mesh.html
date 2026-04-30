@@ -1,0 +1,20 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+html,body{margin:0;background:#03030a;color:#f0eeff;font-family:'Inter',sans-serif}
+.card{width:700px;box-sizing:border-box;padding:30px 28px;
+  background:radial-gradient(at 30% 15%,rgba(109,40,217,.30) 0,transparent 55%),
+             radial-gradient(at 85% 5%,rgba(124,58,237,.20) 0,transparent 52%),
+             radial-gradient(at 5% 55%,rgba(139,92,246,.16) 0,transparent 55%),
+             radial-gradient(at 90% 60%,rgba(109,40,217,.18) 0,transparent 52%),
+             radial-gradient(at 10% 90%,rgba(124,58,237,.22) 0,transparent 55%),#03030a;
+  position:relative;overflow:hidden}
+.orb{position:absolute;border-radius:50%;filter:blur(60px);opacity:.25;pointer-events:none}
+.lbl{position:relative;z-index:2;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#a855f7;font-weight:700}
+.cap{position:relative;z-index:2;font-size:13px;color:#9590b8;margin-top:6px;max-width:380px}
+</style></head><body><div class="card">
+<div class="orb" style="width:200px;height:200px;background:#7c3aed;top:-40px;left:-40px"></div>
+<div class="orb" style="width:160px;height:160px;background:#a855f7;bottom:-30px;right:0"></div>
+<div class="orb" style="width:120px;height:120px;background:#e879f9;top:30%;left:55%"></div>
+<p class="lbl">Mesh gradient + floating orbs</p>
+<p class="cap">Every section sits on this backdrop. 5–6 stacked radial-gradient blobs at low opacity, plus 3 animated framer-motion orbs (8s loops, scale+translate, blur-3xl).</p>
+</div></body></html>

@@ -103,24 +103,24 @@ export default function Contact() {
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
-        className="text-center mb-20"
+        className="text-center mb-16"
       >
-        <p className="text-sm uppercase tracking-widest text-[var(--text-muted)] mb-3">
-          Let’s build something great
+        <p className="section-label mb-3">
+          Let&rsquo;s build something great
         </p>
 
-        <h2 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold mb-6">
-          Get in <span className="gradient-text">Touch</span>
+        <h2 className="text-5xl sm:text-6xl font-extrabold text-[var(--text-primary)] mb-5">
+          Get in <span className="gradient-text section-title-line">Touch</span>
         </h2>
 
         <p className="max-w-2xl mx-auto text-xl text-[var(--text-secondary)] leading-relaxed">
-          Whether it’s a job opportunity, collaboration, or just a hello —
-          I’d love to hear from you.
+          Whether it&rsquo;s a job opportunity, collaboration, or just a hello &mdash;
+          I&rsquo;d love to hear from you.
         </p>
       </motion.div>
 
       {/* Layout */}
-      <div className="grid lg:grid-cols-5 gap-12 items-start max-w-6xl mx-auto px-6">
+      <div className="grid lg:grid-cols-5 gap-10 items-start">
 
         {/* LEFT SIDE */}
         <motion.div
@@ -176,20 +176,26 @@ export default function Contact() {
           ))}
 
           {/* Social */}
-          <div className="pt-4 flex gap-3">
-            <a
+          <div className="pt-2 flex gap-3">
+            <motion.a
               href="https://github.com/AnumAhte"
-              className="px-4 py-3 rounded-xl bg-gradient-to-r from-zinc-700 to-zinc-900 text-white"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ y: -2 }}
+              className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-gradient-to-br from-zinc-700 to-zinc-900 text-white text-sm font-semibold transition-transform"
             >
-              GitHub
-            </a>
+              <GithubIcon size={16} /> GitHub
+            </motion.a>
 
-            <a
-              href="#"
-              className="px-4 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-blue-700 text-white"
+            <motion.a
+              href="https://www.linkedin.com/in/anum-ahtesham-7308a42b6/"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ y: -2 }}
+              className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-gradient-to-br from-blue-600 to-blue-800 text-white text-sm font-semibold transition-transform"
             >
-              LinkedIn
-            </a>
+              <LinkedinIcon size={16} /> LinkedIn
+            </motion.a>
           </div>
         </motion.div>
 
@@ -252,9 +258,9 @@ export default function Contact() {
                   <button
                     type="submit"
                     disabled={submitting}
-                    className="w-full py-3 rounded-xl bg-gradient-to-r from-purple-500 to-purple-700 text-lg font-semibold shadow-lg shadow-purple-500/25 hover:scale-[1.02] transition"
+                    className="btn-primary w-full"
                   >
-                    {submitting ? "Sending..." : "Send Message"}
+                    {submitting ? "Sending..." : <>Send Message <Send size={14} /></>}
                   </button>
 
                   {error && (

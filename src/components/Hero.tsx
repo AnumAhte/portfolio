@@ -2,10 +2,9 @@
 
 import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { ArrowDown, Sparkles, Zap } from "lucide-react";
+import { ArrowDown, Sparkles, Zap, Mail } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "./Icons";
 
-/* 🔥 Reduced + focused roles */
 const ROLES = [
   "Frontend Developer",
   "Agentic AI Developer",
@@ -49,8 +48,8 @@ function useTypingEffect(phrases: string[], typingSpeed = 80, pauseDuration = 18
 function Orb({ className, delay = 0 }: { className: string; delay?: number }) {
   return (
     <motion.div
-      className={`absolute rounded-full blur-3xl opacity-25 pointer-events-none ${className}`}
-      animate={{ scale: [1, 1.2, 1], x: [0, 20, 0], y: [0, -20, 0] }}
+      className={`absolute rounded-full blur-3xl opacity-60 pointer-events-none ${className}`}
+      animate={{ scale: [1, 1.15, 1], x: [0, 20, 0], y: [0, -22, 0] }}
       transition={{ duration: 8, delay, repeat: Infinity, ease: "easeInOut" }}
     />
   );
@@ -67,95 +66,150 @@ export default function Hero() {
       className="relative min-h-screen flex items-center justify-center overflow-hidden mesh-gradient"
     >
       {/* Background Orbs */}
-      <Orb className="w-[32rem] h-[32rem] bg-violet-700 top-0 -left-32" />
-      <Orb className="w-96 h-96 bg-purple-700 top-1/3 right-0" delay={2} />
-      <Orb className="w-72 h-72 bg-fuchsia-600 bottom-16 left-1/4" delay={4} />
+      <Orb className="w-[32rem] h-[32rem] bg-[rgba(109,40,217,0.55)] top-0 -left-32" />
+      <Orb className="w-96 h-96 bg-[rgba(124,58,237,0.45)] top-1/3 right-0" delay={2} />
+      <Orb className="w-72 h-72 bg-[rgba(232,121,249,0.40)] bottom-16 left-1/4" delay={4} />
 
-      {/* Container */}
-      <div className="relative z-10 w-full max-w-6xl mx-auto px-6 py-28">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-16">
+      <div className="relative z-10 w-full global-container py-32">
+        <div className="grid lg:grid-cols-[1.5fr_1fr] gap-12 lg:gap-16 items-center">
 
           {/* LEFT */}
-          <div className="flex-1 text-center lg:text-left max-w-2xl">
+          <div className="flex flex-col gap-6 text-center lg:text-left">
 
-            {/* Badge */}
+            {/* Status pill */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border text-sm mb-6"
+              transition={{ duration: 0.5 }}
+              className="inline-flex self-center lg:self-start items-center gap-2 px-3.5 py-1.5 rounded-full text-sm font-medium bg-purple-500/10 border border-[var(--border)] text-[var(--accent)]"
             >
-              <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+              <span className="relative flex w-2 h-2">
+                <span className="absolute inline-flex w-full h-full rounded-full bg-emerald-400 opacity-75 animate-ping" />
+                <span className="relative inline-flex w-2 h-2 rounded-full bg-emerald-400" />
+              </span>
               Available for opportunities
               <Sparkles size={14} />
             </motion.div>
 
             {/* Name */}
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight mb-4">
-              <span className="bg-gradient-to-r from-purple-400 to-purple-700 bg-clip-text text-transparent">
-                Anum
-              </span>
+            <motion.h1
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.05 }}
+              className="heading-display"
+            >
+              <span className="animated-gradient-text">Anum</span>
               <br />
-              Ahtesham
-            </h1>
+              <span className="text-[var(--text-primary)]">Ahtesham</span>
+            </motion.h1>
 
             {/* Role */}
-            <div className="flex items-center justify-center lg:justify-start gap-2 mb-6">
-              <Zap className="text-purple-400" />
-              <span className="text-2xl sm:text-3xl font-semibold text-purple-400">
-                {typedRole} |
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.15 }}
+              className="flex items-center justify-center lg:justify-start gap-2 text-2xl sm:text-3xl font-bold min-h-[44px]"
+            >
+              <Zap size={28} className="text-amber-400 flex-shrink-0" />
+              <span className="text-[var(--text-primary)]">
+                {typedRole}
+                <span className="typing-cursor" />
               </span>
-            </div>
+            </motion.div>
 
             {/* Tagline */}
-            <p className="text-lg md:text-xl text-gray-8git00 leading-relaxed mb-6">
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="text-lg md:text-xl text-[var(--text-secondary)] leading-relaxed max-w-xl mx-auto lg:mx-0"
+            >
               I build real-world AI-powered web applications — from RAG chatbots to full-stack platforms.
-            </p>
+            </motion.p>
 
-            {/* Trust */}
-            <div className="mb-8 space-y-1 text-sm text-gray-600">
-              <p>✦ Built real-world AI apps using Next.js & FastAPI</p>
-              <p>✦ Specialized in RAG chatbots & automation systems</p>
-            </div>
+            {/* Trust strip */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.25 }}
+              className="flex flex-col gap-1.5 px-5 py-3.5 rounded-2xl bg-purple-500/5 border border-[var(--border)] text-left max-w-xl mx-auto lg:mx-0"
+            >
+              <p className="text-sm text-[var(--text-secondary)]">✦ Built real-world AI apps using Next.js &amp; FastAPI</p>
+              <p className="text-sm text-[var(--text-secondary)]">✦ Specialized in RAG chatbots &amp; automation systems</p>
+            </motion.div>
 
-            {/* Buttons */}
-            <div className="flex gap-4 justify-center lg:justify-start">
-              <a
-                href="#projects"
-                className="bg-gradient-to-r from-purple-500 to-purple-700 px-6 py-3 rounded-xl shadow-lg hover:scale-105 transition"
-              >
-                View Projects
+            {/* CTAs */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="flex flex-wrap gap-3.5 justify-center lg:justify-start mt-1"
+            >
+              <a href="#projects" className="btn-primary">
+                View Projects <ArrowDown size={14} />
               </a>
-
-              <a
-                href="#contact"
-                className="border border-purple-500 px-6 py-3 rounded-xl hover:bg-purple-500/10 transition"
-              >
+              <a href="#contact" className="btn-ghost">
                 Hire Me
               </a>
-            </div>
+            </motion.div>
 
-            {/* Social */}
-            <div className="flex gap-4 mt-6 justify-center lg:justify-start">
-              <a href="https://github.com/AnumAhte"><GithubIcon /></a>
-              <a href="https://www.linkedin.com/in/anum-ahtesham-7308a42b6/"><LinkedinIcon /></a>
-            </div>
+            {/* Social tiles */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.35 }}
+              className="flex gap-2.5 justify-center lg:justify-start mt-2"
+            >
+              {[
+                { href: "https://github.com/AnumAhte", icon: <GithubIcon size={20} />, label: "GitHub" },
+                { href: "https://www.linkedin.com/in/anum-ahtesham-7308a42b6/", icon: <LinkedinIcon size={20} />, label: "LinkedIn" },
+                { href: "mailto:anumahtesham2026@gmail.com", icon: <Mail size={20} />, label: "Email" },
+              ].map((s) => (
+                <motion.a
+                  key={s.label}
+                  href={s.href}
+                  target={s.href.startsWith("mailto") ? undefined : "_blank"}
+                  rel="noopener noreferrer"
+                  aria-label={s.label}
+                  whileHover={{ y: -3, scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="w-11 h-11 rounded-xl glass border border-[var(--border)] flex items-center justify-center text-[var(--text-secondary)] hover:text-[var(--accent)] hover:border-purple-500/50 transition-colors duration-200"
+                >
+                  {s.icon}
+                </motion.a>
+              ))}
+            </motion.div>
           </div>
 
-          {/* RIGHT Avatar */}
-          <div className="w-64 h-64 rounded-full bg-gradient-to-br from-purple-500 to-purple-700 flex items-center justify-center text-4xl font-bold">
-            AA
-          </div>
+          {/* RIGHT — Avatar */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
+            className="hidden lg:flex items-center justify-center relative"
+          >
+            <div className="relative w-72 h-72 xl:w-80 xl:h-80 rounded-full bg-gradient-to-br from-purple-500 via-violet-500 to-fuchsia-500 flex items-center justify-center text-white text-7xl xl:text-8xl font-extrabold shadow-[0_30px_80px_rgba(168,85,247,0.45)] float-animation">
+              AA
+              {/* pulse rings */}
+              <span className="absolute -inset-5 rounded-full border-2 border-purple-400/30 animate-ping" style={{ animationDuration: "3s" }} />
+              <span className="absolute -inset-10 rounded-full border border-purple-400/15" />
+            </div>
+          </motion.div>
 
         </div>
       </div>
 
-      {/* Scroll */}
-      <button
+      {/* Scroll-down button */}
+      <motion.button
         onClick={() => document.querySelector("#about")?.scrollIntoView({ behavior: "smooth" })}
-        className="absolute bottom-6 left-1/2 -translate-x-1/2"
+        aria-label="Scroll to About"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1, y: [0, 8, 0] }}
+        transition={{ opacity: { delay: 0.8 }, y: { duration: 2, repeat: Infinity, ease: "easeInOut" } }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 w-11 h-11 rounded-full glass border border-[var(--border)] flex items-center justify-center text-[var(--accent)] hover:border-purple-500/60 transition-colors"
       >
-        <ArrowDown />
-      </button>
+        <ArrowDown size={20} />
+      </motion.button>
     </section>
   );
 }

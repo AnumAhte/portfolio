@@ -1,0 +1,29 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+html,body{margin:0;background:#03030a;color:#f0eeff;font-family:'Inter',sans-serif}
+.card{width:700px;box-sizing:border-box;padding:24px 28px;
+  background:radial-gradient(at 20% 10%,rgba(124,58,237,.18) 0,transparent 55%),#03030a}
+.row{display:grid;gap:14px;grid-template-columns:1fr 1fr}
+.glass{background:rgba(10,8,22,.80);backdrop-filter:blur(24px) saturate(160%);
+  border:1px solid rgba(139,92,246,.22);border-radius:16px;padding:18px}
+.stat{text-align:center}
+.stat .icn{display:inline-flex;width:32px;height:32px;align-items:center;justify-content:center;
+  color:#a855f7;margin-bottom:4px}
+.stat .num{font-size:32px;font-weight:800;font-family:'Poppins',sans-serif;
+  background:linear-gradient(270deg,#7c3aed,#a855f7,#c084fc,#e879f9);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+.stat .lab{font-size:12px;color:#524e6f;margin-top:4px;font-weight:600}
+.glass.feat{position:relative;overflow:hidden}
+.glass.feat .accent{position:absolute;left:0;top:0;bottom:0;width:4px;
+  background:linear-gradient(180deg,#a855f7,#7c3aed,#e879f9);opacity:.7}
+.glass.feat h4{font-family:'Poppins',sans-serif;font-size:16px;font-weight:700;margin:0 0 4px;padding-left:8px}
+.glass.feat p{font-size:13px;color:#9590b8;margin:0;padding-left:8px;line-height:1.5}
+</style></head><body><div class="card">
+<div class="row">
+  <div class="glass stat"><div class="icn">🚀</div><div class="num">10+</div><div class="lab">Projects Built</div></div>
+  <div class="glass feat"><div class="accent"></div>
+    <h4>Agentic AI Systems</h4>
+    <p>Building intelligent agents and RAG-based chatbots that retrieve, reason, and respond.</p>
+  </div>
+</div>
+</div></body></html>

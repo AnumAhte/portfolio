@@ -1,0 +1,24 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+html,body{margin:0;background:#03030a;color:#f0eeff;font-family:'Inter',sans-serif}
+.card{width:700px;box-sizing:border-box;padding:22px 26px;
+  background:radial-gradient(at 20% 10%,rgba(124,58,237,.18) 0,transparent 55%),radial-gradient(at 90% 90%,rgba(168,85,247,.14) 0,transparent 55%),#03030a}
+.grid{display:grid;gap:10px}
+.swatch{border-radius:14px;padding:12px 14px;color:#fff;font-weight:700;
+  border:1px solid rgba(139,92,246,.22);display:flex;flex-direction:column;
+  justify-content:space-between;min-height:78px}
+.hex{font-size:10px;opacity:.85;font-weight:600;letter-spacing:.04em;font-feature-settings:"tnum"}
+.name{font-size:13px;font-weight:700}
+</style></head><body><div class="card">
+<div class="grid" style="grid-template-columns:repeat(5,1fr)">
+  <div class="swatch" style="background:#d8b4fe;color:#3b0764"><span class="name">Purple 300</span><span class="hex">#D8B4FE</span></div>
+  <div class="swatch" style="background:#c084fc;color:#3b0764"><span class="name">Purple 400</span><span class="hex">#C084FC</span></div>
+  <div class="swatch" style="background:#a855f7"><span class="name">Purple 500 ▸ accent</span><span class="hex">#A855F7</span></div>
+  <div class="swatch" style="background:#9333ea"><span class="name">Purple 600</span><span class="hex">#9333EA</span></div>
+  <div class="swatch" style="background:#7c3aed"><span class="name">Purple 700</span><span class="hex">#7C3AED</span></div>
+  <div class="swatch" style="background:#6d28d9"><span class="name">Purple 800</span><span class="hex">#6D28D9</span></div>
+  <div class="swatch" style="background:#8b5cf6"><span class="name">Violet 500</span><span class="hex">#8B5CF6</span></div>
+  <div class="swatch" style="background:#e879f9"><span class="name">Fuchsia 400</span><span class="hex">#E879F9</span></div>
+  <div class="swatch" style="background:linear-gradient(135deg,#7c3aed,#a855f7,#c084fc)"><span class="name">Signature gradient</span><span class="hex">135° 7c3aed→c084fc</span></div>
+  <div class="swatch" style="background:linear-gradient(270deg,#7c3aed,#a855f7,#e879f9,#9333ea)"><span class="name">Animated 7-stop</span><span class="hex">used on hero text</span></div>
+</div></div></body></html>

@@ -59,43 +59,47 @@ export default function Navbar() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled
-            ? "py-2"
-            : "py-3"
+          scrolled ? "py-2" : "py-4"
         }`}
       >
         {/* Pill-shaped floating bar */}
         <div className="global-container">
           <div
-            className={`relative flex items-center justify-between h-14 px-5 rounded-2xl transition-all duration-500 ${
+            className={`group/nav relative flex items-center justify-between h-14 px-4 rounded-full transition-all duration-500 backdrop-blur-2xl ${
               scrolled
-                ? "bg-[rgba(3,3,10,0.92)] backdrop-blur-2xl border border-[rgba(139,92,246,0.28)] shadow-[0_8px_40px_rgba(0,0,0,0.6),0_0_0_1px_rgba(168,85,247,0.10)]"
-                : "bg-transparent border border-transparent"
+                ? "bg-[rgba(3,3,10,0.85)] border border-[rgba(168,85,247,0.30)] shadow-[0_10px_40px_rgba(0,0,0,0.55),0_0_0_1px_rgba(168,85,247,0.12),inset_0_1px_0_rgba(255,255,255,0.04)]"
+                : "bg-[rgba(10,8,22,0.55)] border border-[rgba(139,92,246,0.18)] shadow-[0_8px_32px_rgba(0,0,0,0.35)]"
             }`}
           >
-            {/* Subtle top glow line when scrolled */}
-            {scrolled && (
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-purple-500/60 to-transparent" />
-            )}
+            {/* Animated gradient sheen along the top edge */}
+            <div className="pointer-events-none absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-purple-400/60 to-transparent rounded-full" />
+            {/* Soft bottom shadow line */}
+            <div className="pointer-events-none absolute inset-x-6 -bottom-px h-px bg-gradient-to-r from-transparent via-fuchsia-400/30 to-transparent" />
 
             {/* Brand */}
             <motion.a
               href="#hero"
               onClick={(e) => { e.preventDefault(); handleNavClick("#hero"); }}
-              className="flex items-center gap-2.5 select-none"
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
+              className="flex items-center gap-2.5 select-none pl-1"
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.96 }}
             >
               {/* Animated logo mark */}
-              <div className="relative w-8 h-8">
-                <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-purple-500 to-violet-600 shadow-[0_0_16px_rgba(168,85,247,0.5)]" />
-                <div className="absolute inset-0 rounded-xl flex items-center justify-center text-white font-black text-sm tracking-tighter">
+              <div className="relative w-9 h-9 group/logo">
+                {/* Outer glow ring on hover */}
+                <span className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-purple-500 via-fuchsia-500 to-violet-600 opacity-0 group-hover/logo:opacity-60 blur-md transition-opacity duration-300" />
+                {/* Animated gradient bg */}
+                <span className="absolute inset-0 rounded-xl bg-[linear-gradient(135deg,#7c3aed,#a855f7,#e879f9,#a855f7,#7c3aed)] bg-[length:200%_200%] animate-[gradient-x_5s_ease_infinite] shadow-[0_8px_24px_rgba(168,85,247,0.45)]" />
+                {/* Top highlight */}
+                <span className="absolute inset-0 rounded-xl bg-gradient-to-b from-white/25 to-transparent opacity-60" />
+                {/* Letters */}
+                <span className="absolute inset-0 rounded-xl flex items-center justify-center text-white font-black text-sm tracking-tighter">
                   AA
-                </div>
+                </span>
               </div>
               <span className="font-extrabold text-base tracking-tight" style={{ fontFamily: "var(--font-poppins, 'Poppins'), sans-serif" }}>
-                <span className="gradient-text">Anum</span>
-                <span className="text-[var(--text-muted)]">.</span>
+                <span className="animated-gradient-text">Anum</span>
+                <span className="text-[var(--accent)]">.</span>
               </span>
             </motion.a>
 
@@ -107,35 +111,39 @@ export default function Navbar() {
                   <motion.button
                     key={link.label}
                     onClick={() => handleNavClick(link.href)}
-                    className={`relative px-4 py-2 text-sm font-medium rounded-xl transition-all duration-200 ${
+                    className={`relative px-4 py-2 text-sm font-medium rounded-full transition-colors duration-200 ${
                       isActive
-                        ? "text-[var(--text-primary)]"
+                        ? "text-white"
                         : "text-[var(--text-muted)] hover:text-[var(--text-primary)]"
                     }`}
-                    whileHover={{ scale: 1.05 }}
+                    whileHover={{ y: -1 }}
                     whileTap={{ scale: 0.95 }}
                   >
                     {isActive && (
                       <motion.span
                         layoutId="nav-pill"
-                        className="absolute inset-0 rounded-xl bg-white/5 border border-white/10"
+                        className="absolute inset-0 rounded-full bg-gradient-to-br from-purple-500/30 via-violet-500/20 to-fuchsia-500/25 border border-purple-400/40 shadow-[0_4px_16px_rgba(168,85,247,0.30),inset_0_1px_0_rgba(255,255,255,0.08)]"
                         transition={{ type: "spring", stiffness: 380, damping: 30 }}
                       />
                     )}
-                    <span className="relative">{link.label}</span>
+                    <span className="relative z-10">{link.label}</span>
+                    {/* Hover underline accent */}
+                    {!isActive && (
+                      <span className="absolute left-1/2 -translate-x-1/2 bottom-1 h-px w-0 bg-gradient-to-r from-purple-400 to-fuchsia-400 opacity-0 group-hover:opacity-100 transition-all duration-300" />
+                    )}
                   </motion.button>
                 );
               })}
             </nav>
 
             {/* Right actions */}
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 pr-1">
               {/* Theme toggle */}
               <motion.button
                 onClick={toggleTheme}
-                whileHover={{ scale: 1.1 }}
+                whileHover={{ scale: 1.1, rotate: 12 }}
                 whileTap={{ scale: 0.9 }}
-                className="w-9 h-9 rounded-xl border border-[var(--border)] bg-white/5 flex items-center justify-center text-[var(--text-muted)] hover:text-[var(--accent)] hover:border-purple-500/40 transition-all duration-200"
+                className="w-9 h-9 rounded-full border border-[var(--border)] bg-[rgba(168,85,247,0.06)] flex items-center justify-center text-[var(--text-secondary)] hover:text-[var(--accent)] hover:border-purple-500/50 hover:bg-[rgba(168,85,247,0.12)] transition-colors duration-200"
                 aria-label="Toggle theme"
               >
                 <AnimatePresence mode="wait">
@@ -155,12 +163,23 @@ export default function Navbar() {
               <motion.a
                 href="#contact"
                 onClick={(e) => { e.preventDefault(); handleNavClick("#contact"); }}
-                whileHover={{ scale: 1.05, boxShadow: "0 0 24px rgba(168,85,247,0.55)" }}
+                whileHover={{ scale: 1.06 }}
                 whileTap={{ scale: 0.95 }}
-                className="hidden md:flex items-center gap-1.5 px-4 py-2 text-sm font-semibold text-white rounded-xl bg-gradient-to-r from-purple-600 to-violet-600 shadow-[0_0_12px_rgba(168,85,247,0.3)] transition-all duration-200"
+                className="hidden md:flex relative items-center gap-1.5 px-4 py-2 text-sm font-semibold text-white rounded-full overflow-hidden group/hire"
               >
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                Hire Me
+                {/* Animated gradient background */}
+                <span className="absolute inset-0 bg-[linear-gradient(135deg,#7c3aed,#a855f7,#e879f9,#a855f7,#7c3aed)] bg-[length:300%_100%] animate-[gradient-x_4s_linear_infinite]" />
+                {/* Hover glow */}
+                <span className="absolute inset-0 rounded-full shadow-[0_0_20px_rgba(168,85,247,0.55)] opacity-0 group-hover/hire:opacity-100 transition-opacity duration-300" />
+                {/* Top sheen */}
+                <span className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/20 to-transparent rounded-t-full" />
+                <span className="relative flex items-center gap-1.5">
+                  <span className="relative flex w-2 h-2">
+                    <span className="absolute inline-flex w-full h-full rounded-full bg-emerald-300 opacity-75 animate-ping" />
+                    <span className="relative inline-flex w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_6px_rgba(52,211,153,0.8)]" />
+                  </span>
+                  Hire Me
+                </span>
               </motion.a>
 
               {/* Mobile toggle */}
@@ -168,7 +187,7 @@ export default function Navbar() {
                 onClick={() => setMenuOpen(!menuOpen)}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
-                className="md:hidden w-9 h-9 rounded-xl border border-[var(--border)] bg-white/5 flex items-center justify-center text-[var(--text-secondary)]"
+                className="md:hidden w-9 h-9 rounded-full border border-[var(--border)] bg-[rgba(168,85,247,0.06)] flex items-center justify-center text-[var(--text-secondary)] hover:text-[var(--accent)] hover:border-purple-500/50 transition-colors"
                 aria-label="Toggle menu"
               >
                 <AnimatePresence mode="wait">
@@ -199,7 +218,8 @@ export default function Navbar() {
             className="fixed top-[4.5rem] left-0 right-0 z-40 px-4 md:hidden"
           >
             <div className="global-container px-0">
-              <div className="bg-[rgba(3,3,10,0.97)] backdrop-blur-2xl border border-[rgba(139,92,246,0.28)] rounded-2xl shadow-[0_24px_64px_rgba(0,0,0,0.75)] overflow-hidden p-3">
+              <div className="relative bg-[rgba(3,3,10,0.95)] backdrop-blur-2xl border border-[rgba(168,85,247,0.30)] rounded-3xl shadow-[0_24px_64px_rgba(0,0,0,0.75),0_0_0_1px_rgba(168,85,247,0.10)] overflow-hidden p-3">
+                <div className="pointer-events-none absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-purple-400/60 to-transparent" />
                 <ul className="flex flex-col gap-1">
                   {navLinks.map((link, i) => (
                     <motion.li
@@ -210,7 +230,7 @@ export default function Navbar() {
                     >
                       <button
                         onClick={() => handleNavClick(link.href)}
-                        className="w-full text-left px-4 py-3 rounded-xl text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-white/5 transition-all duration-200"
+                        className="w-full text-left px-4 py-3 rounded-xl text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--accent)] hover:bg-purple-500/10 transition-colors duration-200"
                       >
                         {link.label}
                       </button>
